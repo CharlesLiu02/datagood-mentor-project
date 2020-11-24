@@ -1,10 +1,11 @@
 from tkinter import *
+import tkinter as tk
 # Press the green button in the gutter to run the script.
-from Startup_Window import Startup_Window
+from StartupWindow import StartupWindow
 
 if __name__ == '__main__':
-    WIDTH = "600"
-    HEIGHT = "600"
+    WIDTH = "800"
+    HEIGHT = "800"
     root = Tk()
-    startup_window = Startup_Window(root, "DataGood Mentored Project", WIDTH + "x" + HEIGHT)
+    startup_window = StartupWindow(root, "DataGood Mentored Project", WIDTH + "x" + HEIGHT)
     root.mainloop()
