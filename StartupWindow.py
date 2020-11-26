@@ -32,9 +32,11 @@ class StartupWindow(object):
 
     def create_linear(self, event):
         # TODO: create new window
-        root = Tk()
-        self.linear_window = LinRegWindow(root, "Linear Regression", "600x600")
-        root.mainloop()
+        self.master.destroy()
+        self.master = Tk()
+        # root.resizable(False, False)
+        self.linear_window = LinRegWindow(self.master, "Linear Regression", "1000x700")
+        self.master.mainloop()
 
     def create_random_forest(self, event):
         # TODO: create new window
