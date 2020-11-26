@@ -13,7 +13,7 @@ class LinRegWindow(object):
         self.blurb_var = StringVar()
         self.blurb_var.set("Insert Blurb Here")
         self.blurb = Label(self.content_frame, textvariable=self.blurb_var, relief=RAISED,
-                                    padx = 200, pady = 50, justify= CENTER, anchor = CENTER, font = helvetica(10))
+                                    padx = 200, pady = 50, justify= CENTER, anchor = CENTER, font = helvetica(40))
         self.data = Label(self.content_frame, text="data", relief=RAISED,
                                     padx = 75, pady = 100, justify= CENTER, anchor = CENTER, font = helvetica(40))
         self.user_input = Label(self.content_frame, text="input", relief=RAISED,

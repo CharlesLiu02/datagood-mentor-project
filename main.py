@@ -9,6 +9,6 @@ if __name__ == '__main__':
     HEIGHT = "500"
     root = Tk()
 
-    startup_window = StartupWindow(root, "DataGood Mentored Project", WIDTH + "x" + HEIGHT)
-    #linreg_window = LinRegWindow(root, "Linear Regression",  WIDTH + "x" + HEIGHT)
+    #startup_window = StartupWindow(root, "DataGood Mentored Project", WIDTH + "x" + HEIGHT)
+    linreg_window = LinRegWindow(root, "Linear Regression",  WIDTH + "x" + HEIGHT)
     root.mainloop()
