@@ -1,8 +1,6 @@
 from tkinter import *
 from tkinter import font as tkFont
-from LinearWindow import LinearWindow
-from ForestWindow import ForestWindow
-from KNNWindow import KNNWindow
+from LinReg import LinRegWindow
 
 class StartupWindow(object):
     def __init__(self, master, title, size):
@@ -36,19 +34,19 @@ class StartupWindow(object):
     def create_linear(self, event):
         # TODO: create new window
         root = Tk()
-        self.linear_window = LinearWindow(root, "Linear Regression", "600x600")
+        self.linear_window = LinRegWindow(root, "Linear Regression", "600x600")
         root.mainloop()
 
     def create_random_forest(self, event):
         # TODO: create new window
         root = Tk()
-        self.forest_window = ForestWindow(root, "Random Forest Regression", "600x600")
+        # self.forest_window = ForestWindow(root, "Random Forest Regression", "600x600")
         root.mainloop()
 
     def create_knn(self):
         # TODO: create new window
         root = Tk()
-        self.knn_window = KNNWindow(root, "K Nearest Neighbors", "600x600")
+        # self.knn_window = KNNWindow(root, "K Nearest Neighbors", "600x600")
         root.mainloop()
 
 
