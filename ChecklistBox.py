@@ -12,15 +12,16 @@ class ChecklistBox(tk.Frame):
             cb = tk.Checkbutton(self, var=var, text=choice,
                                 onvalue=choice, offvalue="",
                                 anchor="w", width=20, background=bg,
-                                relief="flat", highlightthickness=0
+                                relief="flat", highlightthickness=0,
             )
+            cb.deselect()
             cb.pack(side="top", fill="x", anchor="w")
 
 
     def getCheckedItems(self):
         values = []
         for var in self.vars:
-            value =  var.get()
+            value = var.get()
             if value:
                 values.append(value)
         return values

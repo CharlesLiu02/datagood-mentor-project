@@ -34,7 +34,7 @@ class StartupWindow(object):
         # TODO: create new window
         self.master.destroy()
         self.master = Tk()
-        # root.resizable(False, False)
+        self.master.resizable(False, False)
         self.linear_window = LinRegWindow(self.master, "Linear Regression", "1000x700")
         self.master.mainloop()
 
