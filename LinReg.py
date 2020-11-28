@@ -39,7 +39,7 @@ class LinRegWindow(object):
                                       yscrollcommand=input_treescrolly.set)  # assign the scrollbars to the Treeview Widget
         input_treescrollx.pack(side="bottom", fill="x")  # make the scrollbar fill the x axis of the Treeview widget
         input_treescrolly.pack(side="right", fill="y")  # make the scrollbar fill the y axis of the Treeview widget
-        file = '/Users/stephen/Desktop/DataGood Project/datagood-mentor-project/insurance.csv'
+        file = './insurance.csv'
         self.df = pd.read_csv(file).sort_values(by=['age', 'sex', 'bmi'], ascending=True)
         self.load_data(self.input_treeview, self.df)
 
@@ -95,7 +95,7 @@ class LinRegWindow(object):
         X_train = train.loc[:, checked]
         y_train = train["charges"]
         X_test = test.loc[:, checked]
-        y_test = test["charges"] 
+        y_test = test["charges"]
 
         model = LinearRegression(fit_intercept=False)
         model.fit(X_train, y_train)
