@@ -17,7 +17,7 @@ class RandomForestWindow(object):
         self.master.geometry(self.size)
         self.sub_title_label = Label(self.master, text="Random Forest Regression", font=helvetica(30, True))
         self.blurb_var = StringVar()
-        self.blurb_var.set("Insert Blurb Here")
+        self.blurb_var.set("Random forest is a Supervised Learning algorithm which uses ensemble learning method for classification and regression.")
         self.blurb = Label(self.master, textvariable=self.blurb_var, relief=RAISED,
                                     padx = 200, pady = 50, justify= CENTER, anchor = CENTER, font = helvetica(10))
         self.input_label = Label(self.master, text="Input Data", font=helvetica(20))

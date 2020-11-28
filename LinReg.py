@@ -19,7 +19,7 @@ class LinRegWindow(object):
         self.master.geometry(self.size)
         self.sub_title_label = Label(self.master, text="Linear Regression", font=helvetica(50, True))
         self.blurb_var = StringVar()
-        self.blurb_var.set("Insert Blurb Here")
+        self.blurb_var.set("Linear regression is a linear approach to modelling the relationship between a scalar response and one or more explanatory variables.")
         self.blurb = Label(self.master, textvariable=self.blurb_var, relief=RAISED,
                                     padx = 200, pady = 50, justify= CENTER, anchor = CENTER, font = helvetica(10))
         self.input_label = Label(self.master, text="Input Data", font=helvetica(20))
