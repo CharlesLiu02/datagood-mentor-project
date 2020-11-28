@@ -1,23 +1,21 @@
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
-from sklearn import preprocessing
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import font as tkFont
 from ChecklistBox import ChecklistBox
 
-
-class LinRegWindow(object):
+class RandomForestWindow(object):
     def __init__(self, master, title, size):
         self.master = master
         self.title = title
         self.size = size
         self.master.title(self.title)
         self.master.geometry(self.size)
-        self.sub_title_label = Label(self.master, text="Linear Regression", font=helvetica(50, True))
+        self.sub_title_label = Label(self.master, text="Random Forest Regression", font=helvetica(30, True))
         self.blurb_var = StringVar()
         self.blurb_var.set("Insert Blurb Here")
         self.blurb = Label(self.master, textvariable=self.blurb_var, relief=RAISED,
@@ -27,7 +25,7 @@ class LinRegWindow(object):
         self.error_label = Label(self.master, text="", font=helvetica(15), justify=LEFT, wraplength=400)
         self.data_frame = Frame(self.master)
         self.output_frame = Frame(self.master)
-        self.submit_button = Button(self.master, text="Click for linear regression", width=20, font=helvetica(10))
+        self.submit_button = Button(self.master, text="Click for random forest regression", width=20, font=helvetica(8))
         # setting up data
         self.input_treeview = ttk.Treeview(self.data_frame)
         self.input_treeview.place(relheight=1, relwidth=1)
@@ -69,7 +67,7 @@ class LinRegWindow(object):
         self.input_treeview.place(relheight=1, relwidth=1)
         self.output_treeview.place(relheight=1, relwidth=1)
 
-        self.submit_button.bind("<Button-1>", self.linear_regression)
+        self.submit_button.bind("<Button-1>", self.random_forest_regression)
 
     def load_data(self, treeview, data):
         self.clear_data(treeview)
@@ -87,17 +85,15 @@ class LinRegWindow(object):
         treeview.delete(*treeview.get_children())
         return None
 
-
-    def linear_regression(self, event):
+    def random_forest_regression(self, event):
         checked = self.checklist.getCheckedItems()
-
         train, test = train_test_split(self.df, test_size=0.2, random_state=83)
         X_train = train.loc[:, checked]
         y_train = train["charges"]
         X_test = test.loc[:, checked]
-        y_test = test["charges"] 
+        y_test = test["charges"]
 
-        model = LinearRegression(fit_intercept=False)
+        model = RandomForestRegressor(n_estimators = 200, n_jobs = -1)
         model.fit(X_train, y_train)
         y_pred_train = model.predict(X_train)
         y_pred_test = model.predict(X_test)

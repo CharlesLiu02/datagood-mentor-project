@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import font as tkFont
 from LinReg import LinRegWindow
+from RandomForest import RandomForestWindow
 
 class StartupWindow(object):
     def __init__(self, master, title, size):
@@ -40,9 +41,13 @@ class StartupWindow(object):
 
     def create_random_forest(self, event):
         # TODO: create new window
-        root = Tk()
-        # self.forest_window = ForestWindow(root, "Random Forest Regression", "600x600")
-        root.mainloop()
+
+        self.master.destroy()
+        self.master = Tk()
+        self.master.resizable(False, False)
+        self.forest_window = RandomForestWindow(self.master, "Random Forest Regression", "1000x700")
+        self.master.mainloop()
+
 
     def create_knn(self):
         # TODO: create new window

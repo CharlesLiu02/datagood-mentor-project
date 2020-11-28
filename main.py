@@ -5,11 +5,11 @@ from StartupWindow import StartupWindow
 from LinReg import LinRegWindow
 
 if __name__ == '__main__':
-    WIDTH = "1000"
-    HEIGHT = "500"
+    WIDTH = "800"
+    HEIGHT = "600"
     root = Tk()
     root.resizable(False, False)
 
     startup_window = StartupWindow(root, "DataGood Mentored Project", WIDTH + "x" + HEIGHT)
-    # linreg_window = LinRegWindow(root, "Linear Regression",  WIDTH + "x" + HEIGHT)
+    #linreg_window = LinRegWindow(root, "Linear Regression",  WIDTH + "x" + HEIGHT)
     root.mainloop()
