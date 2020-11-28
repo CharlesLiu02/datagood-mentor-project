@@ -1,0 +1,95 @@
+test = {'name': 'q3',
+ 'points': 10,
+ 'suites': [{'cases': [{'code': '>>> s = Link(3, Link(5, Link(7)))\n'
+                                '\n'
+                                '>>> sum_link(s, lambda x: x)       # 3 + 5 + '
+                                '7\n'
+                                '15\n'
+                                '\n'
+                                '>>> double = lambda x: 2 * x\n'
+                                '\n'
+                                '>>> sum_link(s, double)            # '
+                                'double(3) + double(5) + double(7)\n'
+                                '30\n'
+                                '\n'
+                                '>>> sum_link(Link.empty, double)\n'
+                                '0\n'
+                                '\n'
+                                '>>> sum_link(Link(2, Link(6)), lambda x: x * '
+                                'x)\n'
+                                '40\n'}],
+             'scored': True,
+             'setup': 'from q3 import *',
+             'type': 'doctest'},
+            {'cases': [{'code': '>>> c = CreditCard(50)\n'
+                                '\n'
+                                '>>> c.purchase(5)      # 45 remaining\n'
+                                '45\n'
+                                '\n'
+                                '>>> c.purchase(30)     # now only 15 '
+                                'remaining\n'
+                                '15\n'
+                                '\n'
+                                '>>> c.purchase(30)\n'
+                                "'declined'\n"
+                                '\n'
+                                '>>> c.pay_bill()       # current balance is '
+                                '35\n'
+                                '35\n'
+                                '\n'
+                                '>>> c.purchase(30)     # 20 remaining\n'
+                                '20\n'
+                                '\n'
+                                '>>> [CreditCard(10), CreditCard(20, 5)]\n'
+                                '[CreditCard(10, 0), CreditCard(20, 5)]\n'
+                                '\n'
+                                '>>> d = CreditCard(100)\n'
+                                '\n'
+                                '>>> d.purchase(10)\n'
+                                '90\n'
+                                '\n'
+                                '>>> d.purchase(60)\n'
+                                '30\n'
+                                '\n'
+                                '>>> d.purchase(60)\n'
+                                "'declined'\n"
+                                '\n'
+                                '>>> d.pay_bill()\n'
+                                '70\n'
+                                '\n'
+                                '>>> d.purchase(60)\n'
+                                '40\n'}],
+             'scored': True,
+             'setup': 'from q3 import *',
+             'type': 'doctest'},
+            {'cases': [{'code': '>>> a = Wallet(Link(CreditCard(1000), '
+                                'Link(CreditCard(2000))))\n'
+                                '\n'
+                                '>>> a.total_available\n'
+                                '3000\n'
+                                '\n'
+                                '>>> '
+                                'a.procure(10).procure(30).procure(1000).procure(160)\n'
+                                'Wallet(Link(CreditCard(1000, 200), '
+                                'Link(CreditCard(2000, 1000))))\n'
+                                '\n'
+                                '>>> a.total_available\n'
+                                '1800\n'
+                                '\n'
+                                '>>> a.procure(1500)\n'
+                                "'No CreditCard can purchase an item of that "
+                                "price.'\n"
+                                '\n'
+                                '>>> b = Wallet(Link(CreditCard(10), '
+                                'Link(CreditCard(20), Link(CreditCard(30)))))\n'
+                                '\n'
+                                '>>> b.total_available\n'
+                                '60\n'
+                                '\n'
+                                '>>> b.procure(20).procure(10).procure(20)\n'
+                                'Wallet(Link(CreditCard(10, 10), '
+                                'Link(CreditCard(20, 20), Link(CreditCard(30, '
+                                '20)))))\n'}],
+             'scored': True,
+             'setup': 'from q3 import *',
+             'type': 'doctest'}]}
