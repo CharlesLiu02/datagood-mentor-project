@@ -48,9 +48,9 @@ class RandomForestWindow(object):
         self.load_data(self.input_treeview, self.df,[])
 
         choices1 = ["age", "sex: male", "sex: female", "bmi", "smoker: no", "smoker: yes", ]
-        self.checklist1 = ChecklistBox(self.master, True, choices1, bd=1, relief="sunken", background="white")
+        self.checklist1 = ChecklistBox(self.master, True, False, choices1, bd=1, relief="sunken", background="white")
         choices2 = ["region: northwest", "region: northeast", "region: southwest", "region: southeast"]
-        self.checklist2 = ChecklistBox(self.master, False, choices2, bd=1, relief="sunken", background="white")
+        self.checklist2 = ChecklistBox(self.master, False, False, choices2, bd=1, relief="sunken", background="white")
 
         self.output_treeview = ttk.Treeview(self.output_frame)
         self.output_treeview.place(relheight=1, relwidth=1)

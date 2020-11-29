@@ -42,10 +42,10 @@ class KNNWindow(object):
         self.df = pd.read_csv(file).sort_values(by=['age', 'sex', 'bmi'], ascending=True)
         self.load_data(self.input_treeview, self.df,[])
 
-        choices1 = ["age", "sex: male", "sex: female", "bmi", "smoker: no", "smoker: yes", ]
-        self.checklist1 = ChecklistBox(self.master, True, choices1, bd=1, relief="sunken", background="white")
-        choices2 = ["region: northwest", "region: northeast", "region: southwest", "region: southeast"]
-        self.checklist2 = ChecklistBox(self.master, False, choices2, bd=1, relief="sunken", background="white")
+        choices1 = ["age", "bmi", "charges"]
+        self.checklist1 = ChecklistBox(self.master, True, True, choices1, bd=1, relief="sunken", background="white")
+        choices2 = ["sex: male", "sex: female", "region: northwest", "region: northeast", "region: southwest", "region: southeast"]
+        self.checklist2 = ChecklistBox(self.master, False, False, choices2, bd=1, relief="sunken", background="white")
 
         self.output_treeview = ttk.Treeview(self.output_frame)
         self.output_treeview.place(relheight=1, relwidth=1)
