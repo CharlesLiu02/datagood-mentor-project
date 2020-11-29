@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import font as tkFont
 from LinReg import LinRegWindow
 from RandomForest import RandomForestWindow
+from KNN import KNNWindow
 
 class StartupWindow(object):
     def __init__(self, master, title, size):
@@ -49,11 +50,13 @@ class StartupWindow(object):
         self.master.mainloop()
 
 
-    def create_knn(self):
+    def create_knn(self,event):
         # TODO: create new window
-        root = Tk()
-        # self.knn_window = KNNWindow(root, "K Nearest Neighbors", "600x600")
-        root.mainloop()
+        self.master.destroy()
+        self.master = Tk()
+        self.master.resizable(False, False)
+        self.forest_window = KNNWindow(self.master, "KNN", "1000x700")
+        self.master.mainloop()
 
 
 def helvetica(x, bold=False):
