@@ -11,5 +11,4 @@ if __name__ == '__main__':
     root.resizable(False, False)
 
     startup_window = StartupWindow(root, "DataGood Mentored Project", WIDTH + "x" + HEIGHT)
-    #linreg_window = LinRegWindow(root, "Linear Regression",  WIDTH + "x" + HEIGHT)
     root.mainloop()

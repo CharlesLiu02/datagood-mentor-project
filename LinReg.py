@@ -45,14 +45,14 @@ class LinRegWindow(object):
                                       yscrollcommand=input_treescrolly.set)  # assign the scrollbars to the Treeview Widget
         input_treescrollx.pack(side="bottom", fill="x")  # make the scrollbar fill the x axis of the Treeview widget
         input_treescrolly.pack(side="right", fill="y")  # make the scrollbar fill the y axis of the Treeview widget
-        file = './insurance.csv'
+        file = '/Users/stephen/Desktop/DataGood Project/datagood-mentor-project/insurance.csv'
         self.df = pd.read_csv(file).sort_values(by=['age', 'sex', 'bmi'], ascending=True)
         self.load_data(self.input_treeview, self.df, [])
 
         choices1 = ["age", "sex: male", "sex: female", "bmi", "smoker: no", "smoker: yes", ]
-        self.checklist1 = ChecklistBox(self.master, True, choices1, bd=1, relief="sunken", background="white")
+        self.checklist1 = ChecklistBox(self.master, True, False, choices1, bd=1, relief="sunken", background="white")
         choices2 = ["region: northwest", "region: northeast", "region: southwest", "region: southeast"]
-        self.checklist2 = ChecklistBox(self.master, False, choices2, bd=1, relief="sunken", background="white")
+        self.checklist2 = ChecklistBox(self.master, False, False, choices2, bd=1, relief="sunken", background="white")
 
         self.output_treeview = ttk.Treeview(self.output_frame)
         self.output_treeview.place(relheight=1, relwidth=1)
@@ -135,6 +135,7 @@ class LinRegWindow(object):
             self.error_label['text'] = "An error has occurred. You most likely did not select age or bmi."
         y_pred_train = model.predict(X_train)
         y_pred_test = model.predict(X_test)
+        print(X_test)
         training_error = root_mean_squared_error(y_train, y_pred_train)
         test_error = root_mean_squared_error(y_test, y_pred_test)
         test = test.rename({'charges': 'real charges'}, axis=1)
