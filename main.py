@@ -10,5 +10,5 @@ if __name__ == '__main__':
     root = Tk()
     root.resizable(False, False)
 
-    startup_window = StartupWindow(root, "DataGood Mentored Project", WIDTH + "x" + HEIGHT)
+    startup_window = StartupWindow(root, "Health Insurance Prediction Tool", WIDTH + "x" + HEIGHT)
     root.mainloop()
