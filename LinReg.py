@@ -136,6 +136,7 @@ class LinRegWindow(object):
             self.error_label['text'] = "An error has occurred. You most likely did not select age or bmi."
         y_pred_train = model.predict(X_train)
         y_pred_test = model.predict(X_test)
+        print(X_test)
         training_error = root_mean_squared_error(y_train, y_pred_train)
         test_error = root_mean_squared_error(y_test, y_pred_test)
         test = test.rename({'charges': 'real charges'}, axis=1)

@@ -12,34 +12,49 @@ class ChecklistBox(tk.Frame):
         self.age_checker = IntVar()
         self.charges_checker = IntVar()
         self.children_checker = IntVar()
+        self.bmi_checker = IntVar()
         self.age_entry = EntryWithPlaceholder(self, "Enter age ")
         self.charges_entry = EntryWithPlaceholder(self, "Enter $ of charges")
         self.children_entry = EntryWithPlaceholder(self, "Enter # children")
-        def activateCheck(KNN=False, checker = None, entry = None):
-            if KNN:
-                if checker_var.get() == 1:  # whenever checked
-                    entry.config(state=NORMAL)
-                elif checker_var.get() == 0:  # whenever unchecked
-                    entry.config(state=DISABLED)
-            else:
-                if self.checker.get() == 1:  # whenever checked
-                    self.entry.config(state=NORMAL)
-                elif self.checker.get() == 0:  # whenever unchecked
-                    self.entry.config(state=DISABLED)
+        self.bmi_entry = EntryWithPlaceholder(self, "Enter BMI")
+        def activateCheck():
+            if self.checker.get() == 1:  # whenever checked
+                self.entry.config(state=NORMAL)
+                self.age.config(state=NORMAL)
+            elif self.checker.get() == 0:  # whenever unchecked
+                self.entry.config(state=DISABLED)
+                self.age.config(state=DISABLED)
+        def activateAgeCheck():
+            if self.age_checker.get() == 1:  # whenever checked
+                self.age_entry.config(state=NORMAL)
+            elif self.age_checker.get() == 0:  # whenever unchecked
+                self.age_entry.config(state=DISABLED)
+        def activateChargesCheck():
+            if self.charges_checker.get() == 1:  # whenever checked
+                self.charges_entry.config(state=NORMAL)
+            elif self.charges_checker.get() == 0:  # whenever unchecked
+                self.charges_entry.config(state=DISABLED)
+        def activateChildrenCheck():
+            if self.children_checker.get() == 1:  # whenever checked
+                self.children_entry.config(state=NORMAL)
+            elif self.children_checker.get() == 0:  # whenever unchecked
+                self.children_entry.config(state=DISABLED)
+        def activateBMICheck():
+            if self.bmi_checker.get() == 1:  # whenever checked
+                self.bmi_entry.config(state=NORMAL)
+            elif self.bmi_checker.get() == 0:  # whenever unchecked
+                self.bmi_entry.config(state=DISABLED)
 
         if isKNN:
-            quantitative = [self.age_checker, self.charges_checker, self.children_checker]
-            entries = [self.age_entry, self.charges_entry, self.children_entry]
-            for choice in choices:
-                var = tk.StringVar(value=choice)
-                entry = entries.pop()
-                checker_var= quantitative.pop()
-                self.vars.append(var)
-                cb = Checkbutton(self, variable=checker_var , command=activateCheck(True,checker_var,entry), text= choice + " : ",
+            checker_vars = [self.age_checker, self.charges_checker, self.children_checker, self.bmi_checker]
+            entries = [self.age_entry, self.charges_entry, self.children_entry, self.bmi_entry]
+            checker_funcs = [activateAgeCheck, activateChargesCheck, activateChildrenCheck, activateBMICheck]
+            for i in range(len(choices)):
+                cb = Checkbutton(self, variable=checker_vars[i], command=checker_funcs[i], text= choices[i],
                                        background=bg, relief="flat", highlightthickness=0)
                 cb.pack(side="top", fill="x", anchor="w")
-                entry.pack(side="top")
-                entry.config(state=DISABLED)
+                entries[i].pack(side="top")
+                entries[i].config(state=DISABLED)
                 cb.deselect()
 
         else:
@@ -74,10 +89,12 @@ class ChecklistBox(tk.Frame):
                 values.append(value)
         if self.checker.get() == 1:
             values.append("children: " + str(self.entry.get()))
-        elif self.age_checker.get() == 1:
-            values.append("age: " + str(self.age_entry.get()))
-        elif self.charges_checker.get() == 1:
-            values.append("charges: " + str(self.charges_entry.get()))
-        elif self.children_checker.get() == 1:
-            values.append("children: " + str(self.children_entry.get()))
+        if self.age_checker.get() == 1:
+            values.append("age " + str(self.age_entry.get()))
+        if self.charges_checker.get() == 1:
+            values.append("charges " + str(self.charges_entry.get()))
+        if self.children_checker.get() == 1:
+            values.append("children " + str(self.children_entry.get()))
+        if self.bmi_checker.get() == 1:
+            values.append("bmi: " + str(self.children_entry.get()))
         return values

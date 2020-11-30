@@ -55,7 +55,7 @@ class StartupWindow(object):
         self.master.destroy()
         self.master = Tk()
         self.master.resizable(False, False)
-        self.forest_window = KNNWindow(self.master, "KNN", "1000x700")
+        self.forest_window = KNNWindow(self.master, "KNN", "1000x750")
         self.master.mainloop()
 
 

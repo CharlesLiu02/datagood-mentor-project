@@ -20,7 +20,7 @@ class RandomForestWindow(object):
         self.blurb_var.set( "Random forest is a Supervised Learning algorithm which uses ensemble learning method for classification."
                             " Shown below is a data set of insurance charges for different "
                             "individuals with different characteristics. You can select certain parameters you want "
-                            "to use for your linear regression model and the program will display the predicted charges "
+                            "to use for your random forest regression model and the program will display the predicted charges "
                             "based on your model and its error compared to the actual charges. For each category,"
                             "please only select on parameter (ex: only selecting northwest). You must select at least "
                             "one quantitative measurement.")
