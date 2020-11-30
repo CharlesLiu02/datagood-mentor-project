@@ -1,8 +1,5 @@
 from tkinter import *
-import tkinter as tk
-# Press the green button in the gutter to run the script.
 from StartupWindow import StartupWindow
-from LinReg import LinRegWindow
 
 if __name__ == '__main__':
     WIDTH = "800"
